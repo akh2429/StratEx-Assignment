@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "0663f0bb-48cf-4c6b-8840-a6b5fa1a56a4",
+		"name": "StratexProject",
+		"description": "Normal Crud Operations with user Data\n\nEnd Points :\n\nGET/users (To fetch all the users)\n\nGET/tasks/:id (To fetch the particular user)\n\nPOST/users (To create the new users )\n\nPUT/tasks/:id (To update an existing users by Id)\n\nDELETE/tasks/:id (To delete and existing user by id)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26899018"
+	},
+	"item": [
+		{
+			"name": "Create New User Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"EmailAddress\": \"abc@test.com\",\r\n    \"BusinessName\": \"Akhilesh\",\r\n    \"PhoneNumber\": \"9752464352\",\r\n    \"HomeAddress\": \"MIG - 2- 2983 Housing Board Bhilai\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5050/users",
+				"description": "User Registration API Documentation\n\nWelcome to the User Registration API documentation. This API allows you to register new users with the system. Follow the guidelines below to use this API effectively.\n\n## Authentication\n\nThis API does not require authentication for user registration.\n\n## Base URL\n\nThe base URL for all API endpoints is: `https://api.example.com`\n\n## Endpoints\n\n### 1\\. Create User\n\n- **Endpoint:** `/api/users/register`\n- **HTTP Method:** `POST`\n- **Description:** Register a new user.\n- **Request Body:**\n    - `EmailAddress` (string, required): User's email address.\n    - `BusinessName` (string, optional): User's business name.\n    - `PhoneNumber` (string, required): User's phone number (10 digits).\n    - `HomeAddress` (string, required): User's home address\n\n#### Example Request\n\n{  \n\"EmailAddress\": \"[user@example.com](https://mailto:user@example.com)\",  \n\"BusinessName\": \"Example Corp\",  \n\"PhoneNumber\": \"1234567890\",  \n\"HomeAddress\": \"123 Main St, City\"  \n}\n\n#### Example Response (Success)\n\n{  \n\"status\": true,  \n\"message\": \"User registered successfully\"  \n}\n\n#### Example Response (Error - Invalid Email)\n\n{  \n\"status\": false,  \n\"message\": \"Invalid email address\"  \n}\n\n#### Example Response (Error - Duplicate Email)\n\n{  \n\"status\": false,  \n\"message\": \"Email Already Exist\"  \n}"
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5050/users",
+				"description": "# User API Documentation\n\n## Overview\n\nThe User API provides endpoints to manage user data.\n\n## Authentication\n\nThis API does not require authentication.\n\n## Get Users\n\nRetrieve a list of users.\n\n- **URL**: `/users`\n- **Method**: `GET`\n- **Authentication**: Required\n    \n\n### Request\n\nNo request parameters are required.\n\n### Response\n\n{\n\n\"status\": true,\n\n\"data\": \\[\n\n{ \"id\": \"1\", \"username\": \"john_doe\", \"email\": \"[john@example.com](https://mailto:john@example.com)\" },\n\n{ \"id\": \"2\", \"username\": \"jane_doe\", \"email\": \"[jane@example.com](https://mailto:jane@example.com)\" }\n\n\\]\n\n**Error Responses**\n\n404 Not Found\n\n{  \n\"status\": false,  \n\"message\": \"No users found\"  \n}\n\n500 Internal Server Error\n\n{  \n\"status\": false,  \n\"message\": \"Internal Server Error\"  \n}"
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5050/users/65153b5c956e0346a49f4b16",
+				"description": "## User API Documentation\n\n### Overview\n\nThe User API provides endpoints to manage user data.\n\n### Authentication\n\nThis API does not require authentication.\n\n### Get User\n\nRetrieve a single user by their ID.\n\n**URL:** `/users/:id`**Method:** `GET`**Authentication:** Not required\n\n#### Request\n\nNo request parameters are required.\n\nResponse\n\n- **Status 200 OK**\n    \n\n**Body:**{  \n\"status\": true,  \n\"data\": {  \n\"id\": \"1\",  \n\"username\": \"john_doe\",  \n\"email\": \"[john@example.com](https://mailto:john@example.com)\"  \n}  \n}\n\n**Status 404 Not Found**\n\n- **Body:**  \n    {  \n    \"status\": false,  \n    \"message\": \"User not found\"  \n    }\n    \n\n**Status 500 Internal Server Error**\n\nNote : Please make sure to replace `:id` in the URL with the actual ID of the user you want to update."
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"EmailAddress\": \"druv@test.com\",\r\n    \"BusinessName\": \"Akhileshhhh\",\r\n    \"PhoneNumber\": \"9752464352\",\r\n    \"HomeAddress\": \"MIG - 2- 298333 Housing Board Bhilai\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5050/tasks/65153b5c956e0346a49f4b16",
+				"description": "### Update User\n\n**Endpoint:** `/users/:id`**HTTP Method:** PUT  \n**Authentication:** Not required\n\n#### Request\n\nNo request parameters are required. However, you should provide a JSON request body with the data you want to update for the user. The request body should include any of the following fields that you want to update:\n\n- `EmailAddress` (optional): The user's email address.\n- `BusinessName` (optional): The user's business name.\n- `PhoneNumber` (optional): The user's phone number.\n- `HomeAddress` (optional): The user's home address.\n    \n\nExample JSON request body:\n\n{  \n\"EmailAddress\": \"[new_email@example.com](https://mailto:new_email@example.com)\",  \n\"BusinessName\": \"New Business Name\",  \n\"PhoneNumber\": \"123-456-7890\",  \n\"HomeAddress\": \"New Home Address\"  \n}\n\n#### Response\n\n- Example Response Body:\n    \n\n{  \n\"EmailAddress\": \"[new_email@example.com](https://mailto:new_email@example.com)\",  \n\"BusinessName\": \"New Business Name\",  \n\"PhoneNumber\": \"123-456-7890\",  \n\"HomeAddress\": \"New Home Address\"  \n}\n\n#### Response\n\n- Example Response Body:\n    \n\n{  \n\"status\": true,  \n\"message\": \"User updated successfully\",  \n\"data\": {  \n\"id\": \"1\",  \n\"username\": \"john_doe\",  \n\"email\": \"[new_email@example.com](https://mailto:new_email@example.com)\",  \n\"BusinessName\": \"New Business Name\",  \n\"PhoneNumber\": \"123-456-7890\",  \n\"HomeAddress\": \"New Home Address\",  \n\"modificationDate\": \"2023-09-28T12:00:00.000Z\"  \n}  \n}\n\n**Status 404 Not Found:** The user with the specified ID was not found.\n\nExample Response Body:\n\n{  \n\"status\": false,  \n\"message\": \"User not found\"  \n}\n\n**Status 500 Internal Server Error:** An internal server error occurred.\n\nExample Response Body:\n\n{  \n\"status\": false,  \n\"message\": \"Internal Server Error\"  \n}\n\n#### Usage\n\nTo update a user, send a PUT request to the `/users/:id` endpoint with the user's ID in the URL and the JSON request body containing the fields you want to update. If the user is found and the update is successful, you will receive a 200 OK response with the updated user data. If the user is not found, you will receive a 404 Not Found response, and in case of any server error, a 500 Internal Server Error response will be returned.\n\nNOTE :Please make sure to replace `:id` in the URL with the actual ID of the user you want to update."
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:5050/tasks/65153b5c956e0346a49f4b16",
+				"description": "### Delete User\n\n**Endpoint:** `/users/:id`**HTTP Method:** DELETE  \n**Authentication:** Not required\n\n#### Request\n\nNo request parameters are required. You only need to provide the user's ID in the URL to specify which user you want to delete.\n\nExample URL:\n\n/users/1\n\n#### Response\n\n- Example Response Body:\n    \n\n{  \n\"status\": true,  \n\"message\": \"User deleted successfully\"  \n}\n\n**Status 404 Not Found:** The user with the specified ID was not found.\n\nExample Response Body:\n\n{  \n\"status\": false,  \n\"message\": \"User not found\"  \n}\n\n**Status 500 Internal Server Error:** An internal server error occurred.\n\nExample Response Body:\n\n{  \n\"status\": false,  \n\"message\": \"Internal Server Error\"  \n}\n\nStartFragment\n\n#### Usage\n\nTo delete a user, send a DELETE request to the `/users/:id` endpoint with the user's ID in the URL. If the user is found and successfully deleted, you will receive a 200 OK response with the message \"User deleted successfully.\" If the user is not found, you will receive a 404 Not Found response, and in case of any server error, a 500 Internal Server Error response will be returned.\n\nNote : Please replace `:id` in the URL with the actual ID of the user you want to delete.\n\nEndFragment"
+			},
+			"response": []
+		}
+	]
+}
