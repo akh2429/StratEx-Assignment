@@ -13,5 +13,5 @@ mongoose.connect(url, { useNewUrlParser: true })
 app.use("/", route);
 
 app.listen(5050, () => {
-    console.log("Express app running on port 5050 ")
+    console.log("Express app running on port 5050 ");
 });

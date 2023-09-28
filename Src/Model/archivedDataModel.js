@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema(
+const ArchivedUserSchema = new mongoose.Schema(
     {
         EmailAddress: {
             type: String,
@@ -25,8 +25,12 @@ const userSchema = new mongoose.Schema(
         modificationDate: {
             type: Date,
             default: null
+        },
+        archivedDate: {
+            type: Date,
+            default: null
         }
     },
 );
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("ArchivedUser", ArchivedUserSchema);

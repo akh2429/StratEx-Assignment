@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { createUsers } = require("../Controller/userController");
+const { createUsers, getUsers, getUser, updateUser, deleteUser } = require("../Controller/userController");
 
-router.post("/Newusers", createUsers);
+router.post("/users", createUsers);
+router.get("/users", getUsers);
+router.get("/users/:id", getUser);
+router.put("/tasks/:id", updateUser);
+router.delete("/tasks/:id", deleteUser);
 
 module.exports = router;
