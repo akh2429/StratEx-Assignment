@@ -44,7 +44,7 @@ async function getUsers(req, res) {
         console.error(err);
         return res.status(500).send({ status: false, message: err.message });
     }
-}
+};
 
 
 ///////////////////////////////////////////////////////////Get one user as per ID///////////////////////////////////////////////////////////////////
@@ -91,7 +91,7 @@ async function updateUser(req, res) {
         console.error(err);
         return res.status(500).send({ status: false, message: err.message });
     }
-}
+};
 
 ///////////////////////////////////////////////////////////Delete User as per Id and archive the user///////////////////////////////////////////////////////////////////
 
